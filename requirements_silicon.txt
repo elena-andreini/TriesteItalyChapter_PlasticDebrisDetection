@@ -1,0 +1,11 @@
+ipykernel
+kagglehub
+rasterio
+tensorflow==2.15
+tensorflow-metal==1.1.0
+tensorflow-hub==0.16.1
+tensorflow-docs
+scikit-learn
+matplotlib
+pillow
+tifffile

@@ -45,6 +45,8 @@ logs/
 .idea/
 *.sublime-project
 *.sublime-workspace
+*.tif
+*.csv
 
 # Ignore environment variables
 .env
