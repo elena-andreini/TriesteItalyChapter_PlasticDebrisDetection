@@ -1,0 +1,20 @@
+name: acolite
+channels:
+  - conda-forge
+dependencies:
+  - python=3
+  - pyresample
+  - cartopy
+  - scipy
+  - numpy
+  - pyhdf
+  - gdal
+  - libgdal-jp2openjpeg
+  - libgdal-netcdf
+  - netcdf4
+  - h5py
+  - pygrib
+  - requests
+  - matplotlib
+  - scikit-image
+  - pyproj

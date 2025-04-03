@@ -1,0 +1,288 @@
+## ACOLITE Python output parameter label configuration
+## note parameter names should match L2W parameter names
+## user edited parameters should be added in parameter_labels_user.txt
+## next line is the header - should be before any parameter lines
+header=parameter,min,max,log,cmap,name,unit
+#
+## generic reflectances
+#
+rhot_*,0,0.15,False,Greys_r,$\rho_{t}$,1
+rhotc_*,0,0.15,False,Greys_r,$\rho_{tc}$,1
+rhorc_*,0,0.15,False,Greys_r,$\rho_{rc}$,1
+rhos_*,0,0.1,False,Greys_r,$\rho_{s}$,1
+rhow_*,0,0.1,False,Greys_r,$\rho_{w}$,1
+Rrs_*,0,0.05,False,Greys_r,$Rrs$,$sr^{-1}$
+rrs_*,0.0,0.10,False,Greys_r,$rrs$,$sr^{-1}$
+rhog_*,0,0.02,False,Greys_r,$\rho_{g}$,1
+rhoe_*,0,0.02,False,Greys_r,$\rho_{e}$,1
+rho_cirrus,0,0.05,False,Greys_r,$\rho_{cirrus}$,1
+#
+## AOT
+#
+aot_550,0,0.5,False,viridis,$\tau_{a} 550 nm$,1
+#
+## SPM Nechad with generic option
+#
+SPM_Nechad,1,100,True,Planck_Parchment_RGB,SPM Nechad,gm$^{-3}$
+SPM_Nechad_*,1,100,True,Planck_Parchment_RGB,SPM Nechad,gm$^{-3}$
+SPM_Nechad2010_*,1,100,True,Planck_Parchment_RGB,SPM Nechad,gm$^{-3}$
+SPM_Nechad2010Ave_*,1,100,True,Planck_Parchment_RGB,SPM Nechad (Ave),gm$^{-3}$
+SPM_Nechad2016,1,100,True,Planck_Parchment_RGB,SPM Nechad 2016,gm$^{-3}$
+SPM_Nechad2016_*,1,100,True,Planck_Parchment_RGB,SPM Nechad 2016,gm$^{-3}$
+SPM_NechadAve,1,100,True,Planck_Parchment_RGB,SPM Nechad Ave,gm$^{-3}$
+SPM_NechadAve_*,1,100,True,Planck_Parchment_RGB,SPM Nechad Ave,gm$^{-3}$
+#
+## T Nechad with generic option
+#
+TUR_Nechad,1,100,True,Planck_Parchment_RGB,T Nechad,FNU
+TUR_Nechad_*,1,100,True,Planck_Parchment_RGB,T Nechad,FNU
+TUR_Nechad2009_*,1,100,True,Planck_Parchment_RGB,T Nechad,FNU
+TUR_Nechad2009Ave_*,1,100,True,Planck_Parchment_RGB,T Nechad (Ave),FNU
+TUR_Nechad2016,1,100,True,Planck_Parchment_RGB,T Nechad 2016,FNU
+TUR_Nechad2016_*,1,100,True,Planck_Parchment_RGB,T Nechad 2016,FNU
+TUR_NechadAve,1,100,True,Planck_Parchment_RGB,T Nechad Ave,FNU
+TUR_NechadAve_*,1,100,True,Planck_Parchment_RGB,T Nechad Ave,FNU
+#
+## T Dogliotti with generic option
+#
+TUR_Dogliotti,1,100,True,Planck_Parchment_RGB,T Dogliotti 2015,FNU
+TUR_Dogliotti_*,1,100,True,Planck_Parchment_RGB,T Dogliotti 2015,FNU
+TUR_Dogliotti2015_nir,1,100,True,Planck_Parchment_RGB,T Dogliotti 2015 NIR,FNU
+TUR_Dogliotti2015_red,1,100,True,Planck_Parchment_RGB,T Dogliotti 2015 Red,FNU
+TUR_Dogliotti2015,1,100,True,Planck_Parchment_RGB,T Dogliotti 2015,FNU
+TUR_Dogliotti2022_*,1,100,True,Planck_Parchment_RGB,T Dogliotti 2022,FNU
+#
+## Novoa switching TUR and SPM with generic option
+#
+TUR_Novoa2017,1,100,True,Planck_Parchment_RGB,T Novoa 2017,FNU
+TUR_Novoa2017_i,1,100,True,Planck_Parchment_RGB,T Novoa 2017 (I),FNU
+TUR_Novoa2017_m,1,100,True,Planck_Parchment_RGB,T Novoa 2017 (M),FNU
+TUR_Novoa2017_switch,0,5,True,default,Novoa 2017 Switch,1
+TUR_Novoa2017_i_switch,0,5,True,default,Novoa 2017 Switch (I),1
+TUR_Novoa2017_m_switch,0,5,True,default,Novoa 2017 Switch (M),1
+SPM_Novoa2017,1,100,True,Planck_Parchment_RGB,SPM Novoa 2017,FNU
+SPM_Novoa2017_i,1,100,True,Planck_Parchment_RGB,SPM Novoa 2017 (I),FNU
+SPM_Novoa2017_m,1,100,True,Planck_Parchment_RGB,SPM Novoa 2017 (M),FNU
+SPM_Novoa2017_switch,0,5,True,default,Novoa 2017 Switch,1
+SPM_Novoa2017_i_switch,0,5,True,default,Novoa 2017 Switch (I),1
+SPM_Novoa2017_m_switch,0,5,True,default,Novoa 2017 Switch (M),1
+#
+## CHL_OC
+#
+chl_oc2,0.03,30,True,Calgae255,CHL OC2,mgm$^{-3}$
+chl_oc3,0.03,30,True,Calgae255,CHL OC3,mgm$^{-3}$
+chl_oc4,0.03,30,True,Calgae255,CHL OC4,mgm$^{-3}$
+chl_oc5,0.03,30,True,Calgae255,CHL OC5,mgm$^{-3}$
+## custom CHL_OC
+chl_oc4m,0.03,30,True,Calgae255,CHL OC4 SeaDAS,mgm$^{-3}$
+chl_oc2f,0.03,30,True,Calgae255,CHL OC2 Franz2015,mgm$^{-3}$
+chl_oc3f,0.03,30,True,Calgae255,CHL OC3 Franz2015,mgm$^{-3}$
+chl_oc3s,0.03,30,True,Calgae255,CHL OC3 SeaDAS,mgm$^{-3}$
+## CHL_CI
+ci,-0.02,0.02,False,Calgae255,CI,sr$^{-1}$
+chl_ci,0.03,30,True,Calgae255,CHL CI,mgm$^{-3}$
+chl_ocx,0.03,30,True,Calgae255,CHL OCx,mgm$^{-3}$
+chlor_a,0.03,30,True,Calgae255,CHL CI/OCx,mgm$^{-3}$
+#
+## CHL_RE
+#
+chl_re_gons,1,100,True,Calgae255,CHL Gons,mg m$^{-3}$
+chl_re_gons740,1,100,True,Calgae255,CHL Gons740,mg m$^{-3}$
+chl_re_gons_nocheck,1,100,True,Calgae255,CHL Gons,mg m$^{-3}$
+chl_re_gons740_nocheck,1,100,True,Calgae255,CHL Gons740,mg m$^{-3}$
+chl_re_moses3b,1,100,True,Calgae255,CHL Moses,mg m$^{-3}$
+chl_re_moses3b740,1,100,True,Calgae255,CHL Moses740,mg m$^{-3}$
+chl_re_moses3b_nocheck,1,100,True,Calgae255,CHL Moses,mg m$^{-3}$
+chl_re_moses3b740_nocheck,1,100,True,Calgae255,CHL Moses740,mg m$^{-3}$
+chl_re_mishra,1,100,True,Calgae255,CHL Mishra,mg m$^{-3}$
+chl_re_mishra_nocheck,1,100,True,Calgae255,CHL Mishra,mg m$^{-3}$
+chl_re_bramich,1,100,True,Calgae255,CHL Bramich,mg m$^{-3}$
+chl_re_bramich_nocheck,1,100,True,Calgae255,CHL Bramich,mg m$^{-3}$
+#
+## indices
+#
+fai,-0.04,0.06,False,default,FAI $\rho_s$ (Hu et al. 2009),1
+fai_i,-0.04,0.06,False,default,FAI (I) $\rho_s$ (Hu et al. 2009),1
+fai_m,-0.04,0.06,False,default,FAI (M) $\rho_s$ (Hu et al. 2009),1
+fai_rhot,-0.04,0.06,False,default,FAI $\rho_t$ (Hu et al. 2009),1
+fai_rhot_i,-0.04,0.06,False,default,FAI (I) $\rho_t$ (Hu et al. 2009),1
+fai_rhot_m,-0.04,0.06,False,default,FAI (M) $\rho_t$ (Hu et al. 2009),1
+afai,-0.04,0.06,False,default,AFAI $\rho_s$ (Wang et Hu 2016),1
+afai_i,-0.04,0.06,False,default,AFAI (I) $\rho_s$ (Wang et Hu 2016),1
+afai_m,-0.04,0.06,False,default,AFAI (M) $\rho_s$ (Wang et Hu 2016),1
+afai_rhot,-0.04,0.06,False,default,AFAI $\rho_t$ (Wang et Hu 2016),1
+afai_rhot_i,-0.04,0.06,False,default,AFAI (I) $\rho_t$ (Wang et Hu 2016),1
+afai_rhot_m,-0.04,0.06,False,default,AFAI (M) $\rho_t$ (Wang et Hu 2016),1
+fait,0,1,False,default,FAIT (Dogliotti et al. 2018),1
+fait_i,0,1,False,default,FAIT (I) (Dogliotti et al. 2018),1
+fait_m,0,1,False,default,FAIT (M) (Dogliotti et al. 2018),1
+
+#
+ndci,-0.5,0.5,False,default,NDCI (Mishra et al. 2014),1
+ndvi,-0.5,0.5,False,default,NDVI $\rho_s$,1
+ndvi_i,-0.5,0.5,False,default,NDVI (I) $\rho_s$,1
+ndvi_m,-0.5,0.5,False,default,NDVI (M) $\rho_s$,1
+ndvi_rhot,-0.5,0.5,False,default,NDVI $\rho_t$,1
+ndvi_rhot_i,-0.5,0.5,False,default,NDVI (I) $\rho_t$,1
+ndvi_rhot_m,-0.5,0.5,False,default,NDVI (M) $\rho_t$,1
+ndvi_rhos,-0.5,0.5,False,default,NDVI $\rho_s$,1
+ndvi_rhos_i,-0.5,0.5,False,default,NDVI (I) $\rho_s$,1
+ndvi_rhos_m,-0.5,0.5,False,default,NDVI (M) $\rho_s$,1
+ndvi_rhosu,-0.5,0.5,False,default,NDVI $\rho_{su}$,1
+ndvi_rhosu_i,-0.5,0.5,False,default,NDVI (I) $\rho_{su}$,1
+ndvi_rhosu_m,-0.5,0.5,False,default,NDVI (M) $\rho_{su}$,1
+#
+slh,0,0.01,False,default,Scattering Line Height (Kudela et al. 2015),1
+#
+## Thermal BT
+#
+bt1,270,300,False,Planck_Parchment_RGB,BT1,K
+bt2,270,300,False,Planck_Parchment_RGB,BT2,K
+bt3,270,300,False,Planck_Parchment_RGB,BT3,K
+bt4,270,300,False,Planck_Parchment_RGB,BT4,K
+bt5,270,300,False,Planck_Parchment_RGB,BT5,K
+bt6,270,300,False,Planck_Parchment_RGB,BT6,K
+bt6_vcid_1,270,300,False,Planck_Parchment_RGB,BT6 VCID1,K
+bt6_vcid_2,270,300,False,Planck_Parchment_RGB,BT6 VCID2,K
+bt10,270,300,False,Planck_Parchment_RGB,BT10,K
+bt11,270,300,False,Planck_Parchment_RGB,BT11,K
+#
+## Thermal Emissivity
+#
+em1,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B1,1
+em2,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B2,1
+em3,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B3,1
+em4,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B4,1
+em5,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B5,1
+em6,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B6,1
+em6_vcid_1,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B6 VCID1,1
+em6_vcid_2,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B6 VCID2,1
+em10,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B10,1
+em11,0.94,1.0,False,Planck_Parchment_RGB,Emissivity B11,1
+#
+## Thermal transmittance
+#
+tau1,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B1,1
+tau2,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B2,1
+tau3,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B3,1
+tau4,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B4,1
+tau5,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B5,1
+tau6,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B6,1
+tau6_vcid_1,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B6 VCID1,1
+tau6_vcid_2,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B6 VCID2,1
+tau10,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B10,1
+tau11,0.6,1.0,False,Planck_Parchment_RGB,$\tau$ B11,1
+#
+## Thermal Lt
+#
+lt1,0,12,False,default,Lt1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt2,0,12,False,default,Lt2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt3,0,12,False,default,Lt3,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt4,0,12,False,default,Lt4,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt5,0,12,False,default,Lt5,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt6,0,12,False,default,Lt6,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt6_vcid_1,0,12,False,default,Lt6 VCID1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt6_vcid_2,0,12,False,default,Lt6 VCID2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt10,0,12,False,default,Lt10,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lt11,0,12,False,default,Lt11,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+#
+## Thermal Ls
+#
+ls1,0,12,False,default,Ls1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls2,0,12,False,default,Ls2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls3,0,12,False,default,Ls3,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls4,0,12,False,default,Ls4,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls5,0,12,False,default,Ls5,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls6,0,12,False,default,Ls6,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls6_vcid_1,0,12,False,default,Ls6 VCID1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls6_vcid_2,0,12,False,default,Ls6 VCID2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls10,0,12,False,default,Ls10,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ls11,0,12,False,default,Ls11,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+#
+## Thermal Ld
+#
+ld1,0,12,False,default,Ls1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld2,0,12,False,default,Ls2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld3,0,12,False,default,Ls3,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld4,0,12,False,default,Ls4,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld5,0,12,False,default,Ls5,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld6,0,12,False,default,Ls6,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld6_vcid_1,0,12,False,default,Ld6 VCID1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld6_vcid_2,0,12,False,default,Ld6 VCID2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld10,0,3,False,default,Ld10,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+ld11,0,3,False,default,Ld11,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+#
+## Thermal Lu
+#
+lu1,0,12,False,default,Lu1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu2,0,12,False,default,Lu2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu3,0,12,False,default,Lu3,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu4,0,12,False,default,Lu4,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu5,0,12,False,default,Lu5,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu6,0,12,False,default,Lu6,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu6_vcid_1,0,12,False,default,Lu6 VCID1,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu6_vcid_2,0,12,False,default,Lu6 VCID2,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu10,0,6,False,default,Lu10,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+lu11,0,6,False,default,Lu11,W $m^{-2}$ $sr^{-1}$ $\mu m^{-1}$
+#
+## Thermal surface temperatures
+#
+st1,270,300,False,Planck_Parchment_RGB,ST1,K
+st2,270,300,False,Planck_Parchment_RGB,ST2,K
+st3,270,300,False,Planck_Parchment_RGB,ST3,K
+st4,270,300,False,Planck_Parchment_RGB,ST4,K
+st5,270,300,False,Planck_Parchment_RGB,ST5,K
+st6,270,300,False,Planck_Parchment_RGB,ST6,K
+st6_vcid_1,270,300,False,Planck_Parchment_RGB,ST6 VCID1,K
+st6_vcid_2,270,300,False,Planck_Parchment_RGB,ST6 VCID2,K
+st10,270,300,False,Planck_Parchment_RGB,ST10,K
+st11,270,300,False,Planck_Parchment_RGB,ST11,K
+sti04,270,300,False,Planck_Parchment_RGB,ST I04,K
+sti05,270,300,False,Planck_Parchment_RGB,ST I05,K
+stm12,270,300,False,Planck_Parchment_RGB,ST M12,K
+stm13,270,300,False,Planck_Parchment_RGB,ST M13,K
+stm14,270,300,False,Planck_Parchment_RGB,ST M14,K
+stm15,270,300,False,Planck_Parchment_RGB,ST M15,K
+stm16,270,300,False,Planck_Parchment_RGB,ST M16,K
+#
+## Water surface temperature
+wst10,18,24,False,Planck_Parchment_RGB,WST10,°C
+wst11,18,24,False,Planck_Parchment_RGB,WST11,°C
+#
+#
+##
+#
+## Hue Angle
+hue_angle,0,360,False,hsv,Hue Angle (Van der Woerd),°
+hue_angle_pitarch,0,360,False,hsv,Hue Angle (Pitarch),°
+#
+## OLH
+olh,0,0.04,False,Calgae255,OLH,1
+#
+## QAA
+qaa_rrs_*,0.0,0.06,False,Greys_r,QAA $rrs$,$sr^{-1}$
+qaa_u_*,0.2,0.4,False,Greys_r,QAA $u$,1
+qaa_v5_a_*,0.0,0.8,False,default,QAA v5 $a$,$m^{-1}$
+qaa_v6_a_*,0.0,0.8,False,default,QAA v6 $a$,$m^{-1}$
+qaa_v5_bbp_*,0.0,0.3,False,default,QAA v5 $bbp$,$m^{-1}$
+qaa_v6_bbp_*,0.0,0.3,False,default,QAA v6 $bbp$,$m^{-1}$
+qaa_v5_Kd_*,0.2,2.0,False,default,QAA v5 $K_d$,$m^{-1}$
+qaa_v6_Kd_*,0.2,2.0,False,default,QAA v6 $K_d$,$m^{-1}$
+qaa_v5_KdPAR_Nechad,0.2,2.0,False,default,QAA v5 $KdPAR$ $Nechad$,$m^{-1}$
+qaa_v6_KdPAR_Nechad,0.2,2.0,False,default,QAA v6 $KdPAR$ $Nechad$,$m^{-1}$
+qaa_v6_KPAR_Lee,0.2,2.0,False,default,QAA v6 $KPAR$ $Lee$,$m^{-1}$
+qaa_v6_KPAR_Lee_roots,0.2,2.0,False,default,QAA v6 $KPAR$ $Lee$,$m^{-1}$
+qaa_v6_Zeu_Lee,0.5,4.0,False,YlGnBu,QAA $z_{eu}$,$m$
+#
+## P3QAA
+p3qaa_a_*,0.0,0.8,False,default,P3QAA $a$,$m^{-1}$
+p3qaa_bb_*,0.0,0.4,False,default,P3QAA $b_b$,$m^{-1}$
+p3qaa_Kd_*,0.2,4.0,False,default,P3QAA $K_d$,$m^{-1}$
+p3qaa_zSD,0.0,3.0,False,YlGnBu,P3QAA $z_{SD}$,$m$
+p3qaa_zSD_biased,0.0,3.0,False,YlGnBu,P3QAA $z_{SD}$ biased,$m$
+p3qaa_eta,0.5,0.7,False,default,P3QAA $\eta$,1
+p3qaa_KPAR,0.2,2.0,False,default,P3QAA $KPAR$,$m^{-1}$
+#
+## DEM
+dem,0,1000,False,Planck_Parchment_RGB,DEM,m
+dem_pressure,950,1020,False,Planck_Parchment_RGB,DEM Pressure,hPa

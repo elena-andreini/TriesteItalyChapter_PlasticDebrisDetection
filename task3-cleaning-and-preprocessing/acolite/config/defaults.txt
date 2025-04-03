@@ -1,0 +1,576 @@
+## ACOLITE default settings
+##
+## Note that it is not recommended to edit this file to change settings.
+## Instead make a new empty settings file for your run, listing only the
+## settings you want to change from the ones in this defaults file.
+##
+## Settings in this defaults file have the lowest priority, they will be
+## overwritten by sensor specific defaults, and they will be over written
+## by user provided settings.
+##
+
+## additional inputfiles
+geofile=None
+l2cfile=None
+
+## settings for cropping
+region_name=
+limit=None
+sub=None
+extend_region=False
+l1r_crop=False
+## polygon can be a file or WKT string
+polygon=None
+polygon_limit=True
+polygon_clip=False
+polylakes=False
+polylakes_database=worldlakes
+## station coordinates and box size
+station_lon=None
+station_lat=None
+station_box_size=None
+station_box_units=km
+## add a buffer to the provided or computed limit
+limit_buffer=None
+limit_buffer_units=degrees
+## L1 tile merging
+merge_tiles=False
+merge_full_tiles=False
+
+## new output settings
+output=None
+output_geolocation=True
+output_xy=False
+output_geometry=True
+output_rhorc=False
+output_ed=False
+
+## add band names to datasets
+## not supported for all sensors
+add_band_name=False
+add_detector_name=False
+
+## compute contrabands
+compute_contrabands=False
+
+## netcdf options
+netcdf_projection=True
+netcdf_compression=False
+netcdf_compression_level=4
+netcdf_compression_least_significant_digit=None
+netcdf_discretisation=False
+
+## Landsat options
+landsat_qa_bands=PIXEL,RADSAT,SATURATION,AEROSOL
+landsat_qa_output=False
+
+## Sentinel-2 options
+s2_target_res=10
+s2_auxiliary_include=False
+s2_auxiliary_project=False
+s2_auxiliary_default=False
+s2_auxiliary_interpolate=True
+s2_write_dfoo=False
+s2_write_vaa=False
+s2_write_saa=False
+
+## get rid of lines when merging
+s2_dilate_blackfill=False
+s2_dilate_blackfill_iterations=2
+
+## Sentinel-2 per pixel geometry
+geometry_type=grids_footprint
+geometry_res=60
+geometry_per_band=False
+geometry_fixed_footprint=False
+geometry_override=False
+
+## Sentinel-3 options
+smile_correction=True
+smile_correction_tgas=True
+use_tpg=False
+use_supplied_ancillary=True
+
+## WorldView only (optional)
+inputfile_swir=None
+worldview_reproject=False
+worldview_reproject_resolution=2
+worldview_reproject_method=nearest
+worldview_convert_l2=False
+
+## Planet options
+planet_store_sr=False
+
+## Pleiades options
+pleiades_skip_pan=False
+pleiades_force_metadata_geolocation=False
+
+## PRISMA options
+prisma_rhot_per_pixel_sza=True
+prisma_store_l2c=False
+prisma_store_l2c_separate_file=True
+prisma_output_pan=False
+
+## CHRIS
+chris_interband_calibration=False
+chris_noise_reduction=True
+
+## DESIS
+desis_mask_ql=True
+
+## some hyperspectral sensors
+hyper_read_cube=True
+
+## GF settings
+clear_scratch=True
+gf_reproject_to_utm=False
+
+## VIIRS settings
+viirs_option=img+mod
+viirs_scanline_projection=True
+viirs_scanline_width=32
+viirs_quality_flags=1,2,4,8,256,512,1024,2048,4096
+viirs_quality_flags=4,8,512,1024,2048,4096
+viirs_output_tir=True
+viirs_output_tir_lt=False
+## apply non water masking using M band
+viirs_mask_mband=True
+## mask using TOA reflectance for matching I and M bands
+viirs_mask_immixed=True
+viirs_mask_immixed_rat=False
+viirs_mask_immixed_dif=True
+viirs_mask_immixed_bands=I01/M05,I02/M07,I03/M10
+viirs_mask_immixed_bands=I03/M10
+viirs_mask_immixed_maxrat=0.2
+viirs_mask_immixed_maxdif=0.002
+
+## SEVIRI settings
+seviri_hrv=False
+
+## Wyvern settings
+wyvern_use_provided_f0=True
+wyvern_use_rsr_file=True
+
+## TACT settings
+tact_run=False
+tact_profile_source=era5
+tact_reptran=medium
+tact_emissivity=water
+tact_emissivity_file=None
+tact_emissivity_ndvi_toa=True
+tact_output_atmosphere=False
+tact_output_intermediate=False
+ged_fill=True
+## TACT wavelength range (micron)
+tact_range=3.5,14
+
+## EMINET settings
+eminet_water_fill=True
+eminet_water_threshold=0.0215
+eminet_model_version=20220809
+eminet_netname=Net2
+eminet_fill=True
+eminet_fill_dilate=False
+
+## printout verbosity
+verbosity=5
+
+## output TOA radiance (not from all sensors)
+output_lt=False
+
+## extraterrestrial solar reference to use in radiance-reflectance conversion
+## only for sensors where ACOLITE does Lr->rhot conversion
+## solar_irradiance_reference=Thuillier2003
+solar_irradiance_reference=Coddington2021_1_0nm
+
+## test cropped scenes for blackfill coverage
+blackfill_skip=True
+blackfill_max=1.0
+blackfill_wave=1600
+
+## copy datasets from L1R to L2R
+copy_datasets=lon,lat,rhot_*
+output_bt=False
+
+## output l2w parameters
+l2w_parameters=None
+l2w_mask=True
+l2w_mask_wave=1600
+l2w_mask_threshold=0.0215
+l2w_mask_water_parameters=True
+l2w_mask_negative_rhow=True
+l2w_mask_negative_wave_range=400,900
+l2w_mask_cirrus=True
+l2w_mask_cirrus_threshold=0.005
+l2w_mask_cirrus_wave=1373
+l2w_mask_high_toa=True
+l2w_mask_high_toa_threshold=0.3
+l2w_mask_high_toa_wave_range=400,2500
+l2w_mask_mixed=True
+l2w_data_in_memory=False
+
+## settings for Nechad algorithms
+nechad_range=600,900
+nechad_max_rhow_C_factor=0.5
+
+## smooth datasets before masking (get rid of some speckle in the masks)
+l2w_mask_smooth=True
+l2w_mask_smooth_sigma=3
+
+## flag settings
+flag_exponent_swir=0
+flag_exponent_cirrus=1
+flag_exponent_toa=2
+flag_exponent_negative=3
+flag_exponent_outofscene=4
+flag_exponent_mixed=5
+flag_exponent_dem_shadow=6
+
+## atmospheric correction settings
+atmospheric_correction=True
+atmospheric_correction_method=dark_spectrum
+
+## gas transmittance settings
+gas_transmittance=True
+## minimum gas transmittance to allow aot retrieval in that band
+min_tgas_aot=0.85
+## minimum gas transmittance to allow surface reflectance retrieval in that band
+min_tgas_rho=0.70
+
+## replace high SZA to fall within LUT
+sza_limit_replace=False
+sza_limit=79.999
+
+## replace high VZA to fall within LUT
+vza_limit_replace=False
+vza_limit=71.999
+
+## cirrus correction (testing - do not use)
+cirrus_correction=False
+cirrus_range=1350,1390
+cirrus_g_vnir=1.0
+cirrus_g_swir=0.5
+
+## generic options
+rsr_version=None
+resolved_geometry=False
+ancillary_data=True
+#ancillary_type=TOAST,MET_NCEP,MET_NCEP_NEXT
+#ancillary_type=O3_AURAOMI_24h,MET_NCEP_6h,MET_NCEP_6h_NEXT
+#ancillary_type=GMAO_FP_MET
+ancillary_type=GMAO_MERRA2_MET
+uoz_default=0.3
+uwv_default=1.5
+pressure=None
+pressure_default=1013.25
+elevation=None
+
+## DEM options
+dem_pressure=False
+dem_pressure_resolved=True
+dem_pressure_percentile=25
+dem_pressure_write=False
+dem_source=copernicus30
+
+## DEM shadow masking
+dem_shadow_mask=False
+dem_shadow_mask_extend=True
+dem_shadow_mask_extend_metres=3000
+dem_shadow_mask_filter=True
+dem_shadow_mask_filter_kernel=3,3
+dem_shadow_mask_erode_its=1
+dem_shadow_mask_dilate_its=5
+
+## correction for reflectance on air-water interface
+dsf_interface_reflectance=False
+dsf_interface_option=default
+dsf_interface_lut=ACOLITE-RSKY-202102-82W
+wind=None
+wind_default=2
+
+## residual sun glint correction
+dsf_residual_glint_correction=False
+dsf_residual_glint_correction_method=default
+dsf_residual_glint_wave_range=1500,2400
+glint_force_band=None
+glint_mask_rhos_wave=1600
+glint_mask_rhos_threshold=0.05
+glint_write_rhog_ref=False
+glint_write_rhog_all=False
+
+## adjacency correction options
+adjacency_correction=False
+adjacency_correction_method=None
+
+## optimisation options
+optimise_target_rhos=None
+optimise_target_rhos_file=None
+optimise_target_rhos_file_type=csv
+optimise_target_rhos_file_wavelength=wavelength
+optimise_target_rhos_file_reflectance=reflectance
+optimise_target_lon=None
+optimise_target_lat=None
+optimise_target_type=pixel
+optimise_target_size=1
+optimise_target_units=pixel
+optimise_target_mask=False
+optimise_tolerance=0.001
+optimise_aot_cost=rmsd
+optimise_plot=False
+optimise_plot_range=-0.01,0.06
+
+## radcor options
+radcor_kernel_radius=5.0
+radcor_kernel_complete_method=neighbourhood
+radcor_force_model=None
+radcor_force_aot=None
+radcor_crop_centre=False
+radcor_edge_extend=False
+radcor_edge_extend_method=average
+radcor_max_vza=15
+radcor_aot_estimate=tsdsf
+radcor_aot_estimate_centre_extent=None
+radcor_aot_estimate_centre_mask=False
+radcor_aot_selection=lowest_positive_difference
+radcor_skip_pan=False
+
+## radcor output options
+radcor_write_rhot=True
+radcor_write_rhotc=False
+radcor_write_rhotc_separate_file=False
+radcor_write_rhoe=True
+radcor_write_rhosu=True
+radcor_development=False
+radcor_diagnostic_plots=False
+
+## tsdsf options
+tsdsf_initial_aot=1.0
+tsdsf_kernel_radius=None
+tsdsf_kernel_complete_method=neighbourhood
+tsdsf_psf_centre_zero=False
+tsdsf_bratio_option=percentile
+tsdsf_bratio_percentile=1
+tsdsf_wave_range=400,2500
+
+## dark spectrum fitting options
+dsf_aot_estimate=tiled
+## number of bands to compute fit or aot / mean
+dsf_nbands=2
+dsf_nbands_fit=2
+## how to compute aot from bands (min/mean/median)
+dsf_aot_compute=min
+
+## options darkest, percentile, intercept
+dsf_spectrum_option=intercept
+dsf_percentile=1
+dsf_intercept_pixels=1000
+dsf_minimum_segment_size=1
+dsf_allow_lut_boundaries=False
+
+## apply percentile filter to TOA data
+dsf_filter_rhot=False
+dsf_filter_percentile=50
+dsf_filter_box=10,10
+
+## filter applied to AOT retrieval
+dsf_filter_aot=False
+# smooth retrieved aot for resolved processing
+dsf_smooth_aot=False
+dsf_smooth_box=10,10
+
+# fill nans in resolved aot (e.g. over very bright targets)
+dsf_aot_fillnan=True
+# use single most common model retrieved in resolved aot
+dsf_aot_most_common_model=True
+
+# more dsf options
+dsf_model_selection=min_drmsd
+dsf_min_tile_cover=0.10
+dsf_min_tile_aot=0.01
+dsf_max_tile_aot=1.20
+dsf_write_tiled_parameters=False
+dsf_wave_range=400,2500
+dsf_exclude_bands=None
+dsf_write_aot_550=False
+
+## fixed aot option
+dsf_fixed_aot=None
+dsf_fixed_lut=ACOLITE-LUT-202110-MOD2
+
+## tile dimensions should be set per sensor
+dsf_tile_dimensions=100,100
+
+## tiled processing options
+dsf_tile_smoothing=True
+dsf_tile_smoothing_kernel_size=3
+dsf_tile_interp_method=linear
+
+## exponential options
+exp_swir_threshold=0.0215
+exp_fixed_epsilon=True
+exp_fixed_epsilon_percentile=50
+exp_fixed_aerosol_reflectance=True
+exp_fixed_aerosol_reflectance_percentile=5
+exp_wave1=1600
+exp_wave2=2200
+exp_alpha=None
+exp_alpha_weighted=True
+exp_epsilon=None
+exp_gamma=None
+exp_output_intermediate=False
+
+## gain settings
+gains=False
+gains_parameter=radiance
+gains_toa=None
+offsets=False
+offsets_toa=None
+
+# output RGB / maps
+rgb_rhot=True
+rgb_rhos=True
+rgb_rhosu=False
+rgb_rhoe=False
+rgb_rhorc=False
+rgb_rhow=False
+map_l1r=False
+map_l2r=False
+map_l2t=False
+map_l2w=False
+
+# rgb maps to output per file type
+l1r_rgb_keys=rhot
+l2r_rgb_keys=rhos,rhosu,rhorc,rhotc,rhoe
+l2w_rgb_keys=rhow
+
+# mapping options
+map_title=True
+map_title_rgb_wavelengths=False
+map_fontname=sans-serif
+map_fontsize=12
+map_usetex=False
+map_dpi=300
+map_ext=png
+map_limit=None
+
+# map annotation options
+map_scalebar=False
+map_scalebar_position=UL
+map_scalebar_color=Black
+map_scalebar_length=None
+map_scalebar_max_fraction=0.33
+map_scalebar_position_vu=0.85
+map_scalebar_position_vl=0.10
+map_scalebar_position_hr=0.95
+map_scalebar_position_hl=0.05
+map_points=None
+
+# map colour bar options
+map_colorbar=True
+map_colorbar_orientation=vertical
+map_auto_range=False
+map_auto_range_percentiles=1,99
+map_fill_outrange=False
+map_fill_color=LightGrey
+map_default_colormap=viridis
+
+# RGB options
+rgb_red_wl=650
+rgb_green_wl=560
+rgb_blue_wl=480
+rgb_min=0.0,0.0,0.0
+rgb_max=0.15,0.15,0.15
+rgb_gamma=1.0,1.0,1.0
+rgb_autoscale=False
+rgb_autoscale_percentiles=5,95
+rgb_stretch=linear
+
+# PAN sharpening options
+pans=False
+pans_method=panr
+pans_output=rgb
+pans_bgr=480,560,655
+pans_rgb_rhot=True
+pans_rgb_rhos=True
+pans_export_geotiff_rgb=False
+pans_sensors=L7_ETM,L8_OLI,L9_OLI,PRISMA,MSG1_SEVIRI,MSG2_SEVIRI,MSG3_SEVIRI,MSG4_SEVIRI
+pans_scale_factor=None
+
+# more mapping options - under development
+map_projected=False
+map_raster=False
+map_pcolormesh=False
+map_cartopy=False
+map_mask=True
+map_xtick_rotation=0
+map_ytick_rotation=0
+map_gridline_color=white
+
+# GeoTIFF export options
+l1r_export_geotiff=False
+l2t_export_geotiff=False
+l2r_export_geotiff=False
+l2w_export_geotiff=False
+export_geotiff_coordinates=False
+export_geotiff_match_file=None
+export_cloud_optimized_geotiff=False
+export_cloud_optimized_geotiff_options=COMPRESS=LZW,PREDICTOR=YES,LEVEL=9,OVERVIEWS=AUTO,BLOCKSIZE=1024
+l1r_export_geotiff_rgb=False
+l2r_export_geotiff_rgb=False
+use_gdal_merge_import=False
+
+# delete NetCDFs
+l1r_delete_netcdf=False
+l2t_delete_netcdf=False
+l2r_delete_netcdf=False
+l2r_pans_delete_netcdf=False
+l2w_delete_netcdf=False
+
+# delete settings and log files
+delete_acolite_run_text_files=False
+# delete output directory if empty
+delete_acolite_output_directory=False
+# delete extracted L1 file
+delete_extracted_input=False
+
+# reproject output files
+reproject_outputs=L1R,L2R,L2W
+reproject_before_ac=False
+output_projection=False
+output_projection_name=None
+output_projection_epsg=None
+output_projection_proj4=None
+output_projection_resolution=None
+output_projection_limit=None
+output_projection_polygon=None
+output_projection_metres=False
+output_projection_xrange=None
+output_projection_yrange=None
+output_projection_resolution_align=True
+output_projection_resampling_method=bilinear
+default_projection_resolution=None
+output_projection_fillnans=False
+output_projection_filldistance=1
+# projection resampling settings
+output_projection_radius=3
+output_projection_epsilon=0
+output_projection_neighbours=32
+
+# reproject input tif files if projection cannot be determined
+reproject_inputfile=False
+reproject_inputfile_force=False
+reproject_inputfile_dem=False
+
+# LUTs
+luts=ACOLITE-LUT-202110-MOD1,ACOLITE-LUT-202110-MOD2
+luts_pressures=500,750,1013,1100
+lut_base=ACOLITE-LUT-202110
+lut_models=1,2
+lut_pressures=500,750,1013,1100
+lut_base_interface=ACOLITE-RSKY-202102-82W
+luts_reduce_dimensions=False
+slicing=False
+
+# CDSE or EarthExplorer download
+scene_download=False
+scene_download_directory=None
