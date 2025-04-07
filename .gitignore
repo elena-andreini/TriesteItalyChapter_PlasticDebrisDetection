@@ -52,3 +52,4 @@ logs/
 .env
 .env.*
 omdena/
+.venv_tensorflow/
