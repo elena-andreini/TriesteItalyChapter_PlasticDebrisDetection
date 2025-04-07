@@ -7,4 +7,4 @@ tensorflow-docs
 scikit-learn
 matplotlib
 pillow
-tifffile
+albumentations
