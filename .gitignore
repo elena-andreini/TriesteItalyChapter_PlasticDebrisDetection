@@ -14,6 +14,7 @@ models/
 *.h5
 *.ckpt
 *.pb
+*.keras
 
 # Ignore virtual environment
 venv/
