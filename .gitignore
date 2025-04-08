@@ -3,6 +3,7 @@
 
 # Ignore data files
 data/
+kaggle_dataset/
 *.csv
 *.tsv
 *.json
