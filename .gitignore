@@ -45,6 +45,7 @@ logs/
 .idea/
 *.sublime-project
 *.sublime-workspace
+.history
 
 # Ignore environment variables
 .env
