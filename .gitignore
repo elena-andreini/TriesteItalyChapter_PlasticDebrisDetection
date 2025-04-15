@@ -4,11 +4,11 @@
 # Ignore data files
 data/
 kaggle_dataset/
-*.csv
 *.tsv
-*.json
 *.xls
-*.xlsx
+*.zip
+*.nc
+
 
 # Ignore model files
 models/
@@ -33,7 +33,7 @@ logs/
 *.log
 *.tmp
 *.bak
-
+_*.ipynb
 # Ignore compiled files
 *.o
 *.so

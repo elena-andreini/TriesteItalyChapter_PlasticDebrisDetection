@@ -1,0 +1,180 @@
+{ "title": "litter windrows for plastic pollution detection",
+  "id": "sarahajbane/litter-windrows",
+  "licenses": [
+    {
+      "name": "CC-BY-SA-4.0",
+      "title": "Creative Commons Attribution Share-Alike 4.0",
+      "path": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ],
+  "resources": [
+    {
+      "name": "S2A_MSIL1C_20190723T101031_N0500_R022_T33TUL_20230718T015529.SAFE",
+      "path": "S2A_MSIL1C_20190723T101031_N0500_R022_T33TUL_20230718T015529.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190723T101031_N0500_R022_T33TUL_20230718T015529.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190723T101031_N0500_R022_T32TQR_20230718T015529.SAFE",
+      "path": "S2A_MSIL1C_20190723T101031_N0500_R022_T32TQR_20230718T015529.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190723T101031_N0500_R022_T32TQR_20230718T015529.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190720T100031_N0500_R122_T32TQQ_20230715T235221.SAFE",
+      "path": "S2A_MSIL1C_20190720T100031_N0500_R122_T32TQQ_20230715T235221.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190720T100031_N0500_R122_T32TQQ_20230715T235221.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190723T101031_N0500_R022_T33TUK_20230718T015529.SAFE",
+      "path": "S2A_MSIL1C_20190723T101031_N0500_R022_T33TUK_20230718T015529.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190723T101031_N0500_R022_T33TUK_20230718T015529.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190705T100039_N0500_R122_T32TQR_20230718T022116.SAFE",
+      "path": "S2B_MSIL1C_20190705T100039_N0500_R122_T32TQR_20230718T022116.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190705T100039_N0500_R122_T32TQR_20230718T022116.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190703T101031_N0500_R022_T33TUK_20230717T022229.SAFE",
+      "path": "S2A_MSIL1C_20190703T101031_N0500_R022_T33TUK_20230717T022229.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190703T101031_N0500_R022_T33TUK_20230717T022229.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190725T100039_N0500_R122_T32TQR_20230619T024542.SAFE",
+      "path": "S2B_MSIL1C_20190725T100039_N0500_R122_T32TQR_20230619T024542.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190725T100039_N0500_R122_T32TQR_20230619T024542.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190730T100031_N0500_R122_T32TQR_20230710T202111.SAFE",
+      "path": "S2A_MSIL1C_20190730T100031_N0500_R122_T32TQR_20230710T202111.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190730T100031_N0500_R122_T32TQR_20230710T202111.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190725T100039_N0500_R122_T33TUL_20230619T024542.SAFE",
+      "path": "S2B_MSIL1C_20190725T100039_N0500_R122_T33TUL_20230619T024542.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190725T100039_N0500_R122_T33TUL_20230619T024542.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190705T100039_N0500_R122_T33TUL_20230718T022116.SAFE",
+      "path": "S2B_MSIL1C_20190705T100039_N0500_R122_T33TUL_20230718T022116.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190705T100039_N0500_R122_T33TUL_20230718T022116.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190730T100031_N0500_R122_T33TUL_20230710T202111.SAFE",
+      "path": "S2A_MSIL1C_20190730T100031_N0500_R122_T33TUL_20230710T202111.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190730T100031_N0500_R122_T33TUL_20230710T202111.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190730T100031_N0500_R122_T33TUK_20230710T202111.SAFE",
+      "path": "S2A_MSIL1C_20190730T100031_N0500_R122_T33TUK_20230710T202111.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190730T100031_N0500_R122_T33TUK_20230710T202111.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190705T100039_N0500_R122_T33TUK_20230718T022116.SAFE",
+      "path": "S2B_MSIL1C_20190705T100039_N0500_R122_T33TUK_20230718T022116.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190705T100039_N0500_R122_T33TUK_20230718T022116.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190725T100039_N0500_R122_T33TUK_20230619T024542.SAFE",
+      "path": "S2B_MSIL1C_20190725T100039_N0500_R122_T33TUK_20230619T024542.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190725T100039_N0500_R122_T33TUK_20230619T024542.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190703T101031_N0500_R022_T32TQR_20230717T022229.SAFE",
+      "path": "S2A_MSIL1C_20190703T101031_N0500_R022_T32TQR_20230717T022229.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190703T101031_N0500_R022_T32TQR_20230717T022229.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190703T101031_N0500_R022_T33TUL_20230717T022229.SAFE",
+      "path": "S2A_MSIL1C_20190703T101031_N0500_R022_T33TUL_20230717T022229.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190703T101031_N0500_R022_T33TUL_20230717T022229.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190720T100031_N0500_R122_T32TQR_20230715T235221.SAFE",
+      "path": "S2A_MSIL1C_20190720T100031_N0500_R122_T32TQR_20230715T235221.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190720T100031_N0500_R122_T32TQR_20230715T235221.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190720T100031_N0500_R122_T33TUL_20230715T235221.SAFE",
+      "path": "S2A_MSIL1C_20190720T100031_N0500_R122_T33TUL_20230715T235221.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190720T100031_N0500_R122_T33TUL_20230715T235221.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190720T100031_N0500_R122_T33TUK_20230715T235221.SAFE",
+      "path": "S2A_MSIL1C_20190720T100031_N0500_R122_T33TUK_20230715T235221.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190720T100031_N0500_R122_T33TUK_20230715T235221.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190723T101031_N0500_R022_T32TQQ_20230718T015529.SAFE",
+      "path": "S2A_MSIL1C_20190723T101031_N0500_R022_T32TQQ_20230718T015529.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190723T101031_N0500_R022_T32TQQ_20230718T015529.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190703T101031_N0500_R022_T32TQQ_20230717T022229.SAFE",
+      "path": "S2A_MSIL1C_20190703T101031_N0500_R022_T32TQQ_20230717T022229.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190703T101031_N0500_R022_T32TQQ_20230717T022229.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2A_MSIL1C_20190730T100031_N0500_R122_T32TQQ_20230710T202111.SAFE",
+      "path": "S2A_MSIL1C_20190730T100031_N0500_R122_T32TQQ_20230710T202111.SAFE.tiff",
+      "description": "Image: S2A_MSIL1C_20190730T100031_N0500_R122_T32TQQ_20230710T202111.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190705T100039_N0500_R122_T32TQQ_20230718T022116.SAFE",
+      "path": "S2B_MSIL1C_20190705T100039_N0500_R122_T32TQQ_20230718T022116.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190705T100039_N0500_R122_T32TQQ_20230718T022116.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    },
+    {
+      "name": "S2B_MSIL1C_20190725T100039_N0500_R122_T32TQQ_20230619T024542.SAFE",
+      "path": "S2B_MSIL1C_20190725T100039_N0500_R122_T32TQQ_20230619T024542.SAFE.tiff",
+      "description": "Image: S2B_MSIL1C_20190725T100039_N0500_R122_T32TQQ_20230619T024542.SAFE.tiff",
+      "type": "image",
+      "format": "tiff"
+    }
+  ]
+}
