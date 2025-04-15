@@ -4,6 +4,7 @@
 # Ignore data files
 data/
 kaggle_dataset/
+dataset_main/
 *.tsv
 *.xls
 *.zip

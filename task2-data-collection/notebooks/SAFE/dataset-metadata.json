@@ -1,12 +1,12 @@
 {
-  "title": "Litter Rows Italy",
-  "id": "sarahajbane/litter-windrows",
-  "licenses": [
-    {
-      "name": "CC-BY-SA-4.0",
-      "title": "Creative Commons Attribution Share-Alike 4.0",
-      "path": "https://creativecommons.org/licenses/by-sa/4.0/"
-    }
-  ],
-  "resources": []
+    "title": "Litter Rows Italy",
+    "id": "sarahajbane/litter-windrows",
+    "licenses": [
+        {
+            "name": "CC-BY-SA-4.0",
+            "title": "Creative Commons Attribution Share-Alike 4.0",
+            "path": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
+    ],
+    "resources": []
 }
