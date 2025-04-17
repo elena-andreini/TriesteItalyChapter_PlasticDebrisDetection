@@ -34,7 +34,7 @@ def update_kaggle_dataset_with_zip(
         if zipf not in existing_paths:
             existing_metadata["resources"].append({
                 "name": Path(zipf).stem,
-                "path": zipf,
+                "path": zip,
                 "description": f"Zipped .SAFE Sentinel-2: {zipf}",
                 "type": "other",
                 "format": "zip"
