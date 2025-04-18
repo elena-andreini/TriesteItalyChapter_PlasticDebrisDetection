@@ -7,16 +7,16 @@
 
 | 🗂️ Batch Name | 🛰️ Satellite Type | 📅 From         | 📅 To           | 📦 Number of SAFE Files | 💾 Estimated Size |
 | ---------------- | ------------------- | --------------- | --------------- | -------------- | ----------------- |
-| Batch_01         |  S2A_MSIL1C         | 2015-07-04   | 2016-10-17   | 30                       | Maximum 27 GB 💽       |
+| [Batch 1](https://kaggle.com/datasets/2a4bdcfca90d41cc0f4b922295d4cd301bd54b44a824ee33ba8c02dac49ce744)   ✅       |  S2A_MSIL1C         | 2015-07-04   | 2016-10-17   | 30                       | 21 GB 💽       |
 | Batch_02  ✅        | S2A_MSIL1C          | 2017-02-20      | 2017-10-08      | 17                      | Maximum 15 GB 💽  |
 | Batch_03     ✅      | S2A_MSIL1C          | 2018-03-27      | 2018-11-12      | 27                      | Maximum 24 GB 💽  |
 | [Batch_04](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-4)   ✅    | S2A_MSIL1C      | 2019-02-13  | 2019-10-11 | 17                      | 11.7 GB 💽  |
 | [Batch_05](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-5)    ✅   | S2A_MSIL1C      | 2020-03-16      | 2020-11-04    | 18                      | 12.35 GB 💽  |
 | [Batch_06](https://kaggle.com/datasets/57998def69485e4499984abeb8f2986e745ada745cb7270c56dd2c7c182c30e5)    ✅    | S2A_MSIL1C          | 2021-03-01      | 2021-08-18      | 18                      | 12.1 GB 💽  |
-| Batch_07         | S2B_MSIL1C          | 2017-07-05      | 2018-11-17      | 37                      | Maximum 33 GB 💽  |
+| Batch_07   ✅      | S2B_MSIL1C          | 2017-07-05      | 2018-11-17      | 37                      | Maximum 33 GB 💽  |
 | Batch_08         | S2B_MSIL1C          | 2019-02-08      | 2019-10-16      | 14                      | Maximum 12 GB 💽  |
 | Batch_09         | S2B_MSIL1C          | 2020-02-20      | 2020-11-19      | 21                      | Maximum 18 GB 💽  |
-| Batch_10         | S2B_MSIL1C          | 2021-03-29      | 2021-06-17      | 10                      | Maximum 9 GB 💽   |
+| [Batch 10](https://kaggle.com/datasets/f96fcdbcbb2bc9e3525a56da2ac9e9a7de53bb477368cb0d4c3d56c9c3668b66)    ✅     | S2B_MSIL1C          | 2021-03-29      | 2021-06-17      | 10                      |  6.97 GB 💽   |
 
 ### 🛰️ Sentinel-2 Data Summary for Northern_Corsica_tile
 
