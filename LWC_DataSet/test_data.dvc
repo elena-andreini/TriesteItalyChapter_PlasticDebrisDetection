@@ -1,5 +1,0 @@
-outs:
-    - md5: 1ad16c68efb3fc82f3f9fa53918c96a5.dir
-      size: 88176646
-      path: test_data
-      nfiles: 57

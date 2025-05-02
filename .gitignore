@@ -55,7 +55,3 @@ omdena/LWC_DataSet/*
 !LWC_DataSet/.gitignore
 !LWC_DataSet/*.dvc
 !LWC_DataSet/README.md
-
-data_test
-
-test_data
