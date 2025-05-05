@@ -7,22 +7,22 @@
 
 | 🗂️ Batch Name | 🛰️ Satellite Type | 📅 From         | 📅 To           | 📦 Number of SAFE Files | 💾 Estimated Size |
 | ---------------- | ------------------- | --------------- | --------------- | -------------- | ----------------- |
-| [Batch_01](https://kaggle.com/datasets/2a4bdcfca90d41cc0f4b922295d4cd301bd54b44a824ee33ba8c02dac49ce744)   ✅       |  S2A_MSIL1C         | 2015-07-04   | 2016-10-17   | 30                       | 21 GB 💽       |
-| Batch_02  ✅        | S2A_MSIL1C          | 2017-02-20      | 2017-10-08      | 17                      | Maximum 15 GB 💽  |
-| Batch_03     ✅      | S2A_MSIL1C          | 2018-03-27      | 2018-11-12      | 27                      | Maximum 24 GB 💽  |
+| [Batch_01](https://kaggle.com/datasets/](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-1))   ✅       |  S2A_MSIL1C         | 2015-07-04   | 2016-10-17   | 30                       | 21 GB 💽       |
+| [Batch_02](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-027)  ✅        | S2A_MSIL1C          | 2017-02-20      | 2017-10-08      | 17                      | 11 GB 💽  |
+| [Batch_03](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-03)     ✅      | S2A_MSIL1C          | 2018-03-27      | 2018-11-12      | 27                      | 19 GB 💽  |
 | [Batch_04](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-4)   ✅    | S2A_MSIL1C      | 2019-02-13  | 2019-10-11 | 17                      | 11.7 GB 💽  |
 | [Batch_05](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-5)    ✅   | S2A_MSIL1C      | 2020-03-16      | 2020-11-04    | 18                      | 12.35 GB 💽  |
-| [Batch_06](https://kaggle.com/datasets/57998def69485e4499984abeb8f2986e745ada745cb7270c56dd2c7c182c30e5)    ✅    | S2A_MSIL1C          | 2021-03-01      | 2021-08-18      | 18                      | 12.1 GB 💽  |
-| Batch_07   ✅      | S2B_MSIL1C          | 2017-07-05      | 2018-11-17      | 37                      | Maximum 33 GB 💽  |
-| Batch_08         | S2B_MSIL1C          | 2019-02-08      | 2019-10-16      | 14                      | Maximum 12 GB 💽  |
+| [Batch_06](https://kaggle.com/datasets/](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-6))    ✅    | S2A_MSIL1C          | 2021-03-01      | 2021-08-18      | 18                      | 12.1 GB 💽  |
+| [Batch_07](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-07)   ✅      | S2B_MSIL1C          | 2017-07-05      | 2018-11-17      | 37                      | 25 GB 💽  |
+| [Batch_08](https://www.kaggle.com/datasets/65135d9727dfa5bbd6b912ae7da30f653571965718351e5cf519be6ea31ada13) ✅        | S2B_MSIL1C          | 2019-02-08      | 2019-10-16      | 14                      | 9.4 GB 💽  |
 | Batch_09         | S2B_MSIL1C          | 2020-02-20      | 2020-11-19      | 21                      | Maximum 18 GB 💽  |
-| [Batch_10](https://kaggle.com/datasets/f96fcdbcbb2bc9e3525a56da2ac9e9a7de53bb477368cb0d4c3d56c9c3668b66)    ✅     | S2B_MSIL1C          | 2021-03-29      | 2021-06-17      | 10                      |  6.97 GB 💽   |
+| [Batch_10](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-10))    ✅     | S2B_MSIL1C          | 2021-03-29      | 2021-06-17      | 10                      |  6.97 GB 💽   |
 
 ### 🛰️ Sentinel-2 Data Summary for Northern_Corsica_tile
 
 | 🗂️ Batch Name | 🛰️ Satellite Type | 📅 From    | 📅 To      | 📦 Number of SAFE Files | 💾 Estimated Size |
 | ---------------- | ------------------- | ---------- | ---------- | ----------------------- | ----------------- |
-| [Batch_11](https://kaggle.com/datasets/978813a46e0c302b6ef579cf5406f7f0e783afe4a2d998009593091fd5f00b34) ✅      | S2A_MSIL1C          | 2015-07-24 | 2021-06-22 | 18                      | 10.5 GB 💽  |
+| [Batch_11](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-11) ✅      | S2A_MSIL1C          | 2015-07-24 | 2021-06-22 | 18                      | 10.5 GB 💽  |
 | [Batch_12](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-corsib)     ✅     | S2B_MSIL1C          | 2017-07-08 | 2020-08-01 | 8                       | 4.9 GB 💽   |
 
 ### 🛰️ Sentinel-2 Data Summary for Calabria_tile
@@ -30,7 +30,7 @@
 | 🗂️ Batch Name | 🛰️ Satellite Type | 📅 From    | 📅 To      | 📦 Number of SAFE Files | 💾 Estimated Size |
 | ---------------- | ------------------- | ---------- | ---------- | ----------------------- | ----------------- |
 | [Batch_13](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-cala)   ✅       | S2A_MSIL1C          | 2015-08-14 | 2020-12-28 | 13                      | 6.1 GB 💽  |
-| [Batch_14](https://kaggle.com/datasets/f6906f09cfd4e0b0d046fd7c330064c9dc0f838ab14b9bcb79fdbc3776a680e4)    ✅      | S2B_MSIL1C          | 2017-07-09 | 2020-10-21 | 9                       | 6.21 GB 💽   |
+| [Batch_14](https://www.kaggle.com/datasets/sarahajbane/litter-windrows-batch-calb))    ✅      | S2B_MSIL1C          | 2017-07-09 | 2020-10-21 | 9                       | 6.21 GB 💽   |
 
 
 ## 📊 Summary
