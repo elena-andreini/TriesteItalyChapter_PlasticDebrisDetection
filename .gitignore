@@ -1,5 +1,6 @@
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
+_*.ipynb
 
 # Ignore data files
 data/
@@ -9,7 +10,7 @@ dataset_main/
 *.xls
 *.zip
 *.nc
-
+*.SAFE
 
 # Ignore model files
 models/
