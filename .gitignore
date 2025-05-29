@@ -1,58 +1,58 @@
-# Ignore Jupyter Notebook checkpoints
-.ipynb_checkpoints/
-_*.ipynb
+# # Ignore Jupyter Notebook checkpoints
+# .ipynb_checkpoints/
+# _*.ipynb
 
-# Ignore data files
-data/
-kaggle_dataset/
-dataset_main/
-*.tsv
-*.xls
-*.zip
-*.nc
-*.SAFE
+# # Ignore data files
+# # data/
+# kaggle_dataset/
+# dataset_main/
+# *.tsv
+# *.xls
+# *.zip
+# *.nc
+# *.SAFE
 
-# Ignore model files
-models/
-*.h5
-*.ckpt
-*.pb
+# # # Ignore model files
+# # models/
+# # *.h5
+# # *.ckpt
+# # *.pb
 
-# Ignore virtual environment
-venv/
-env/
-.venv/
-.env/
+# # Ignore virtual environment
+# venv/
+# env/
+# .venv/
+# .env/
 
-# Ignore Python cache
-__pycache__/
-*.py[cod]
-*$py.class
+# # Ignore Python cache
+# __pycache__/
+# *.py[cod]
+# *$py.class
 
-# Ignore logs and temporary files
-logs/
-*.log
-*.tmp
-*.bak
-_*.ipynb
-# Ignore compiled files
-*.o
-*.so
-*.a
+# # Ignore logs and temporary files
+# logs/
+# *.log
+# *.tmp
+# *.bak
+# _*.ipynb
+# # Ignore compiled files
+# *.o
+# *.so
+# *.a
 
-# Ignore macOS specific files
-.DS_Store
+# # Ignore macOS specific files
+# .DS_Store
 
-# Ignore IDE specific files
-.vscode/
-.idea/
-*.sublime-project
-*.sublime-workspace
+# # Ignore IDE specific files
+# .vscode/
+# .idea/
+# *.sublime-project
+# *.sublime-workspace
 
-# Ignore environment variables
-.env
-.env.*
-omdena/LWC_DataSet/*
-!LWC_DataSet/.gitignore
-!LWC_DataSet/*.dvc
-!LWC_DataSet/README.md
+# # Ignore environment variables
+# .env
+# .env.*
+# omdena/LWC_DataSet/*
+# !LWC_DataSet/.gitignore
+# !LWC_DataSet/*.dvc
+# !LWC_DataSet/README.md
