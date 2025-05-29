@@ -4,7 +4,7 @@
 
 # # Ignore data files
 # # data/
-# kaggle_dataset/
+collaborative_experiments/
 # dataset_main/
 # *.tsv
 # *.xls

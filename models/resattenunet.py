@@ -11,19 +11,19 @@ conv_defaults = {
     }
 
 def conv(in_channels, out_channels, **kwargs):    
-    return nn.Conv2d(in_channels, out_channels, {**conv_defaults, **kwargs})
+    return nn.Conv2d(in_channels, out_channels, **{**conv_defaults, **kwargs})
 
 
 class ChannelAttention(nn.Module):
     def __init__(self, channels, ratio=16):
         super().__init__()
-        self.avg_pool = nn.AdapriveAvgPool2d(1)
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.max_pool = nn.AdaptiveMaxPool2d(1)
 
         self.mlp = nn.Sequential(
-            conv(channels, channels//ratio, kernel_size=1),
+            nn.Conv2d(channels, channels//ratio, kernel_size=1, bias=False),
             nn.ReLU(inplace=True),
-            conv(channels//ratio, channels, kernel_size=1)
+            nn.Conv2d(channels//ratio, channels, kernel_size=1, bias=False)
         )
 
     def forward(self, x):
@@ -48,7 +48,7 @@ class SpatialAttention(nn.Module):
     
 
 class ResidualBlock(nn.Module):
-    def __init__(self, in_channels, out_channels, stride=1, downsample=None)
+    def __init__(self, in_channels, out_channels, stride=1):
         super().__init__()
         self.conv1 = conv(in_channels, out_channels, stride=stride, bias=False)
         self.bn1 = nn.BatchNorm2d(out_channels)
@@ -56,7 +56,6 @@ class ResidualBlock(nn.Module):
         self.bn2 = nn.BatchNorm2d(out_channels)
         
         self.act = nn.ReLU(inplace=True)
-        self.downsasmple = self.downsasmple
         
         self.ca = ChannelAttention(out_channels)
         self.sa = SpatialAttention()
@@ -64,10 +63,8 @@ class ResidualBlock(nn.Module):
     def forward(self, x):
         residual = x
         out = self.act(self.bn1(self.conv1(x)))
+
         out = self.conv2(out)
-        if self.downsample:
-            residual = self.downsample(x)
-        
         out = self.act(self.bn2(out + residual))
 
         out = self.ca(out) * out
@@ -105,11 +102,11 @@ class UpSample(nn.Module):
             nn.BatchNorm2d(out_channels),
             nn.LeakyReLU(.2),
             conv(out_channels, out_channels),
-            nn.BatchNorm(out_channels),
+            nn.BatchNorm2d(out_channels),
             nn.LeakyReLU(.2)
         )
 
-        self.upsample = nn.Upsample(scale_factor=2, mode='biliear', align_corners=True)
+        self.upsample = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
         self.ca = ChannelAttention(out_channels)
         self.sa = SpatialAttention()
 
@@ -133,9 +130,10 @@ class ResAttenUNet(nn.Module):
         self.btn2 = ResidualBlock(512, 512)
         self.btn3 = ResidualBlock(512, 512)
 
-        self.up4 = UpSample(512, 256)
-        self.up3 = UpSample(256, 128)
-        self.up2 = UpSample(128, 64)
+        self.up5 = UpSample(512, 256)
+        self.up4 = UpSample(512, 128)
+        self.up3 = UpSample(256, 64)
+        self.up2 = UpSample(128, 32)
         self.up1 = UpSample(64, 32)
 
         self.head = nn.Conv2d(32, out_channels, kernel_size=1)
