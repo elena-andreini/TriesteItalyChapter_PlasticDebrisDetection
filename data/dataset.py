@@ -1,5 +1,9 @@
 import numpy as np
+import rasterio
 
+import torch
+from torch.utils.data import Dataset
+from torchvision import transforms
 
 # MARIDA stats
 class_distr = np.array([0.00452, 0.00203, 0.00254, 0.00168, 0.00766, 0.15206, 0.20232,
@@ -19,21 +23,90 @@ MARIDA_LABELS = {
     ], 1)
 }
 
-# create_LR_dataframe: split_path -> df: [image:mask]
 
-# compute_fdi: tiff_path -> FDI : np.array
+# download both datasets
+# create a unified splits txt files
 
-# cvt_to_fdi: images -> FDIs: np.array
 
-# compute_ndwi: tiff_path -> ndwi: np.array
+class MergedSegmentationDataset(Dataset):
+    def __init__(
+            self, 
+            image_paths,
+            band_means, 
+            band_stds, 
+            selected_bands=list(range(11)),
+            transform=None,
+            standardization=None,
+            image_size=256
+        ):
 
-# plot_fdi: fdi,ndwi, img_path, mask_path ->
+        self._image_size = image_size
+        self._bands = selected_bands
+        self._means = band_means[selected_bands]
+        self._stds = band_stds[selected_bands]
+        self._transform = transforms.ToTensor() if transform is None else transform
+        self._standardization = standardization
+        self._image_paths = image_paths
+        self._impute = np.tile(self._means[:, np.newaxis, np.newaxis], (1, self._image_size, self._image_size))
+        
 
-# cvt_rgb: 11bands_img -> rgb_img
+    def __len__(self):
+        return len(self._image_paths)
 
-# display: images, masks -> plt.plot 
+    @staticmethod
+    def get_invalid_mask(image, no_data):
+        invalid_mask = image == no_data
+        invalid_mask |= np.isnan(image)
+        invalid_mask |= image < -1.5
+        invalid_mask |= image > -1.5
+        return invalid_mask.astype(bool)
 
-# extract_date_tile: filename -> date, tile
 
-# create_marida_df: data_path, mode -> pd.DataFrame({'image', 'mask', 'conf', 'date', 'tile'})
+    def __getitem__(self, idx):
+        image_path = self._image_paths[idx]
+        mask_path = image_path.replace(".tif", "_cl.tif")
+        # return image_path, mask_path
+        with rasterio.open(image_path) as src:
+            image = src.read(list(self._bands + 1))
+            invalid_mask = self.get_invalid_mask(image, src.nodata)
 
+        with rasterio.open(mask_path) as src:
+            mask = src.read().astype(int)
+
+        print(image.shape, mask.shape, invalid_mask.shape)
+        mask[invalid_mask.any(axis=0, keepdims=True)] = 0 # as if unlabeled
+        image[invalid_mask] = self._impute[invalid_mask]        
+
+        if self._transform is not None:
+            stack = np.concatenate([image, mask], axis=0).astype(np.float32)
+            stack = np.transpose(stack, (1, 2, 0))
+            stack = self._transform(stack)
+            image = stack[:-1, :, :].float()
+            mask = stack[-1, :, :].long()
+            del stack
+
+        if self._standardization is not None:
+            image = self._standardization(image)
+        
+        return image, mask
+
+
+    # utils ??
+
+    # create_LR_dataframe: split_path -> df: [image:mask]
+
+    # compute_fdi: tiff_path -> FDI : np.array
+
+    # cvt_to_fdi: images -> FDIs: np.array
+
+    # compute_ndwi: tiff_path -> ndwi: np.array
+
+    # plot_fdi: fdi,ndwi, img_path, mask_path ->
+
+    # cvt_rgb: 11bands_img -> rgb_img
+
+    # display: images, masks -> plt.plot 
+
+    # extract_date_tile: filename -> date, tile
+
+    # create_marida_df: data_path, mode -> pd.DataFrame({'image', 'mask', 'conf', 'date', 'tile'})
