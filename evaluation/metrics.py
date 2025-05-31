@@ -1,5 +1,6 @@
 import torch
 import seaborn as sns
+import matplotlib.pyplot as plt
 
 def norm_metrics(running, norm):
     try:
@@ -21,20 +22,21 @@ def norm_metrics(running, norm):
 
 
 def plot_metrics(running):
-    print(running["accuracy"])
+    print("accuracy:", running["accuracy"])
     sns.heatmap(running["confusion_matrix"].cpu(), annot=True, cmap="coolwarm")
+    plt.show()
     print()
     print("plastic debris metrics")
-    print("\t", running["plastic_debris"]["precision"])
-    print("\t", running["plastic_debris"]["recall"])
-    print("\t", running["plastic_debris"]["f1"])
-    print("\t", running["plastic_debris"]["iou"])
+    print("\t", "precision:", running["plastic_debris"]["precision"])
+    print("\t", "recall:", running["plastic_debris"]["recall"])
+    print("\t", "f1:", running["plastic_debris"]["f1"])
+    print("\t", "iou:", running["plastic_debris"]["iou"])
     print()
     print("background metrics")
-    print("\t", running["background"]["precision"])
-    print("\t", running["background"]["recall"])
-    print("\t", running["background"]["f1"])
-    print("\t", running["background"]["iou"])
+    print("\t", "precision:", running["background"]["precision"])
+    print("\t", "recall:", running["background"]["recall"])
+    print("\t", "f1:", running["background"]["f1"])
+    print("\t", "iou:", running["background"]["iou"])
 
 
 def update_metrics(running, y_pred, y_true):
