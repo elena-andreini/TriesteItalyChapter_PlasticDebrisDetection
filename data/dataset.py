@@ -13,6 +13,10 @@ band_stds = np.array([0.03185222, 0.03198375, 0.03251331, 0.03379553, 0.03407218
        0.02560836], dtype=np.float32)
 
 
+marida_classes_distr = np.array([0.00452, 0.00203, 0.00254, 0.00168, 0.00766, 0.15206, 0.20232,
+ 0.35941, 0.00109, 0.20218, 0.03226, 0.00693, 0.01322, 0.01158, 0.00052])
+
+
 class MergedSegmentationDataset(Dataset):
     def __init__(
             self, 
