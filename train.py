@@ -176,7 +176,7 @@ for epoch in range(1, epochs+1):
                 target = target[mask]
 
                 probs = F.softmax(logits, dim=1).argmax(1)
-                update_metrics(train_metrics)
+                update_metrics(probs, target, train_metrics)
 
     if epoch % 10 == 0:
         print('########### Validation Set Evaluation : #############')
@@ -208,7 +208,7 @@ for epoch in range(1, epochs+1):
             
 
             probs = F.softmax(logits, dim=1).argmax(1)
-            update_metrics(val_metrics)
+            update_metrics(probs, target, val_metrics)
         
         print('########### Validation Set Evaluation : #############')
         norm_metrics(val_metrics, len(val_loader))
