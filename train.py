@@ -180,6 +180,7 @@ for epoch in range(1, epochs+1):
                 update_metrics(probs, target, running=train_metrics)
 
     if epoch % 10 == 0:
+        print(train_metrics)
         print('########### training Set Evaluation : #############')
         norm_metrics(train_metrics, len(train_dataset))
         print(train_metrics)
