@@ -23,8 +23,8 @@ def load_metadata(mode):
     return paths, ids
 
 
-# device = torch.device("cuda:0")
-def collate_fn(batch, device="cpu"):
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+def collate_fn(batch, device=device):
     images, masks, dataset_ids = zip(*batch)
     images = torch.stack(images)
     masks = torch.stack(masks)
