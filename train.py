@@ -178,7 +178,6 @@ for epoch in range(1, epochs+1):
                 train_metrics = update_metrics(train_metrics, probs, target)
 
     if epoch % 10 == 0:
-        print(train_metrics)
         print('########### training Set Evaluation : #############')
         train_metrics = norm_metrics(train_metrics, len(train_dataset))
         print(train_metrics)
@@ -193,7 +192,6 @@ for epoch in range(1, epochs+1):
     testLossF = []
     valPrecHistory = []
     iters = len(val_loader)
-    print(val_metrics)
     with torch.no_grad():
         for i, (image, target) in enumerate(val_loader):
             logits = model(image)
@@ -211,7 +209,6 @@ for epoch in range(1, epochs+1):
             probs = F.softmax(logits, dim=1).argmax(1)
             val_metrics = update_metrics(val_metrics, probs, target)
         
-        print(val_metrics)
         print('########### Validation Set Evaluation : #############')
         val_metrics = norm_metrics(val_metrics, len(val_loader))
         print(val_metrics)
