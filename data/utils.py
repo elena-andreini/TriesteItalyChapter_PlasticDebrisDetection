@@ -1,6 +1,45 @@
+import os
 import torch
 import random
+import numpy as np
+import pandas as pd
 import torchvision.transforms.functional as vF
+
+basepath = os.path.dirname(__file__)
+
+def load_metadata(mode):
+    assert mode in ["train", "val"], f"Invalid split {mode}"
+    marida = pd.read_csv(os.path.join(basepath, f"marida_{mode}.csv"))
+    lwc = pd.read_csv(os.path.join(basepath, f"lwc_{mode}.csv"))
+
+    paths = np.array(marida.image.tolist() + lwc.image.tolist(), dtype="str")
+    ids = np.zeros_like(paths, dtype=int)
+    ids[:len(marida)] = 1
+    perm = np.random.permutation(len(paths))
+
+    paths = paths[perm]
+    ids = ids[perm]
+
+    return paths, ids
+
+
+# device = torch.device("cuda:0")
+def collate_fn(batch, device="cpu"):
+    images, masks, dataset_ids = zip(*batch)
+    images = torch.stack(images)
+    masks = torch.stack(masks)
+
+
+    images = images.to(device)
+    masks = masks.to(device)
+    dataset_ids = torch.tensor(dataset_ids, dtype=torch.long, device=device)
+
+    lr_masks = process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, device=device)
+    marida_masks = process_marida(masks, dataset_ids, device=device)
+    masks = lr_masks + marida_masks
+    
+    return images, masks
+
 
 
 class RandomRotationTransform:
@@ -11,38 +50,23 @@ class RandomRotationTransform:
         angle = random.choice(self.angles)
         return vF.rotate(x, angle)
 
-
 def gen_weights(class_distribution, c = 1.02):
     return 1/torch.log(c + class_distribution)
 
 
-def collate_fn(batch, device="cpu"):
-    images, masks, dataset_ids = zip(*batch)
-    images = torch.stack(images).to(device, non_blocking=True)
-    masks = torch.stack(masks).to(device, non_blocking=True)
-
-    dataset_ids = torch.tensor(dataset_ids, dtype=torch.long)
-
-    lr_masks = process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, device=device)
-    marida_masks = process_marida(masks, dataset_ids, device=device)
-    masks = lr_masks + marida_masks
-    
-    return images, masks, dataset_ids
-
-
-
-def torch_dilate(mask, kernel_size, device='cpu'):
+def torch_dilate(mask, kernel_size, device="cpu"):
     kernel = torch.ones(1, 1, kernel_size, kernel_size, device=device, dtype=torch.float32)
     mask = mask.float().unsqueeze(1)
     dilated = torch.nn.functional.conv2d(mask, kernel, padding=kernel_size // 2) > 0
     return dilated.squeeze(1).bool()
 
-def process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, threshold=None, device='cpu'):
+def process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, threshold=None, device='cpu'):    
     bg_masks = torch.zeros_like(masks, dtype=torch.int64, device=device)
-    
-    valid_mask = (dataset_ids == 1)
+
+    valid_mask = (dataset_ids == 0)
     if not valid_mask.any():
         return bg_masks
+
 
     # selecting lwc samples
     selected_masks = masks[valid_mask]
@@ -60,8 +84,8 @@ def process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, thresh
         
         if len(valid_coords[0]) > 0:
             sample_indices = torch.randperm(len(valid_coords[0]), device=device)[:num_background]
-            bg_masks[valid_mask.nonzero(as_tuple=True)[0][idx], 
-                     valid_coords[0][sample_indices], 
+            bg_masks[valid_mask.nonzero(as_tuple=True)[0][idx],
+                     valid_coords[0][sample_indices],
                      valid_coords[1][sample_indices]] = 1
     
     bg_masks[valid_mask] = bg_masks[valid_mask] - 1
@@ -69,12 +93,13 @@ def process_lwc(images, masks, dataset_ids, r1=4, r2=16, target_ratio=20, thresh
 
 
 
-def process_marida(masks, dataset_ids, device='cpu'):
+def process_marida(masks, dataset_ids, device="cpu"):
     marida_masks = torch.zeros_like(masks, dtype=torch.int64, device=device)
     
-    marida_mask = (dataset_ids == 0)
+    marida_mask = (dataset_ids == 1)
     if not marida_mask.any():
         return marida_masks
+
     
     selected_masks = masks[marida_mask]
     

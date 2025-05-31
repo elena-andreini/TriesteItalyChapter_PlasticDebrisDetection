@@ -1,9 +1,16 @@
 import numpy as np
 import rasterio
-
-import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
+
+
+band_means = np.array([0.03721786, 0.03547978, 0.03033651, 0.01722546, 0.01574046,
+       0.01738895, 0.01939084, 0.01724032, 0.01895351, 0.0109694 ,
+       0.00784716], dtype=np.float32)
+
+band_stds = np.array([0.03185222, 0.03198375, 0.03251331, 0.03379553, 0.03407218,
+       0.04551132, 0.05334419, 0.05064404, 0.0578197 , 0.03721222,
+       0.02560836], dtype=np.float32)
 
 
 class MergedSegmentationDataset(Dataset):
@@ -66,4 +73,3 @@ class MergedSegmentationDataset(Dataset):
             image = self._standardization(image)
 
         return image, mask, self._dataset_ids[idx]
-        return torch.from_numpy(image).float(), torch.from_numpy(mask).long(), self._dataset_ids[idx]
