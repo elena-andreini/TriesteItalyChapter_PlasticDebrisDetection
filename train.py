@@ -58,6 +58,7 @@ standardization = transforms.Normalize(band_means[selected_bands].tolist(), band
 batch_size = 16
 train_loader = DataLoader(train_dataset,
                         batch_size=batch_size, 
+                        num_workers=os.cpu_count(),
                         shuffle=True,
                         collate_fn=collate_fn
                         )
@@ -179,7 +180,7 @@ for epoch in range(1, epochs+1):
                 update_metrics(probs, target, running=train_metrics)
 
     if epoch % 10 == 0:
-        print('########### Validation Set Evaluation : #############')
+        print('########### training Set Evaluation : #############')
         norm_metrics(train_metrics, len(train_dataset))
         print(train_metrics)
     else:

@@ -21,11 +21,8 @@ def norm_metrics(running, norm):
 
 
 
-
-
-
-
 def update_metrics(y_pred, y_true, running=None):
+    print(".", end="")
     y_pred = y_pred.view(-1)
     y_true = y_true.view(-1)
 
