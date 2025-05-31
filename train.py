@@ -101,7 +101,6 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
     patience=4,
     min_lr=8e-7,
     threshold=1e-2,
-    verbose=True
 )
 
 
@@ -156,7 +155,7 @@ for epoch in range(1, epochs+1):
         loss = train_step(model, optimizer, criterion)
         batch_time = time.perf_counter()-batch_comp_start
 
-        pb.set_postfix(loss=loss.item(), batch_time=batch_time)
+        pb.set_postfix(loss=loss.item(), batch_time=batch_time, lr=scheduler.get_last_lr())
         total_steps += 1
         total_batch_time += batch_time
 
@@ -194,6 +193,7 @@ for epoch in range(1, epochs+1):
     testLossF = []
     valPrecHistory = []
     iters = len(val_loader)
+    print(val_metrics)
     with torch.no_grad():
         for i, (image, target) in enumerate(val_loader):
             logits = model(image)
@@ -211,6 +211,7 @@ for epoch in range(1, epochs+1):
             probs = F.softmax(logits, dim=1).argmax(1)
             update_metrics(probs, target, running=val_metrics)
         
+        print(val_metrics)
         print('########### Validation Set Evaluation : #############')
         norm_metrics(val_metrics, len(val_loader))
         print(val_metrics)
