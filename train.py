@@ -58,7 +58,6 @@ standardization = transforms.Normalize(band_means[selected_bands].tolist(), band
 batch_size = 16
 train_loader = DataLoader(train_dataset,
                         batch_size=batch_size, 
-                        num_workers=os.cpu_count(),
                         shuffle=True,
                         collate_fn=collate_fn
                         )
