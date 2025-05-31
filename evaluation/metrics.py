@@ -1,6 +1,10 @@
 import torch
 import seaborn as sns
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.use('Agg')  # or 'inline'
+
 
 def norm_metrics(running, norm):
     try:
