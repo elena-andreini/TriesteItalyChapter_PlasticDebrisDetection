@@ -4,7 +4,7 @@ import torch
 def norm_metrics(running, norm):
     try:
         running["accuracy"] /= norm
-        running["confusion_matrix"] /= norm
+        running["confusion_matrix"] = running["confusion_matrix"].float() / running["confusion_matrix"].sum()
         running["plastic_debris"]["precision"] /= norm
         running["plastic_debris"]["recall"] /= norm
         running["plastic_debris"]["f1"] /= norm
