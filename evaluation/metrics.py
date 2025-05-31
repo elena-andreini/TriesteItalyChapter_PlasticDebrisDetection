@@ -53,7 +53,7 @@ def update_metrics(y_pred, y_true, running=None):
 
     confusion_matrix = torch.tensor([[tn, fp], [fn, tp]])
 
-    if running is None:
+    if not running:
         return {
             'accuracy': acc,
             'confusion_matrix': confusion_matrix,
