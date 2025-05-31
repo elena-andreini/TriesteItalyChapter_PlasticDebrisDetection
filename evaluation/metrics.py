@@ -14,14 +14,14 @@ def norm_metrics(running, norm):
         running["background"]["recall"] /= norm
         running["background"]["f1"] /= norm
         running["background"]["iou"] /= norm
-
+        return running
     except KeyError as e:
         raise KeyError(f"invalid key in running metrics dict {e}")
 
 
 
 
-def update_metrics(y_pred, y_true, running=None):
+def update_metrics(running, y_pred, y_true):
     print(".", end="")
     y_pred = y_pred.view(-1)
     y_true = y_true.view(-1)
@@ -51,7 +51,7 @@ def update_metrics(y_pred, y_true, running=None):
     confusion_matrix = torch.tensor([[tn, fp], [fn, tp]])
 
     if not running:
-        running = {
+        return {
             'accuracy': acc,
             'confusion_matrix': confusion_matrix,
             'plastic_debris': {
@@ -80,6 +80,6 @@ def update_metrics(y_pred, y_true, running=None):
             running["background"]["recall"] += neg_recall
             running["background"]["f1"] += neg_f1
             running["background"]["iou"] += neg_iou
-
+            return running
         except KeyError as e:
             raise KeyError(f"invalid key in running metrics dict {e}")

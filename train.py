@@ -175,12 +175,12 @@ for epoch in range(1, epochs+1):
                 target = target[mask]
 
                 probs = F.softmax(logits, dim=1).argmax(1)
-                update_metrics(probs, target, running=train_metrics)
+                train_metrics = update_metrics(train_metrics, probs, target)
 
     if epoch % 10 == 0:
         print(train_metrics)
         print('########### training Set Evaluation : #############')
-        norm_metrics(train_metrics, len(train_dataset))
+        train_metrics = norm_metrics(train_metrics, len(train_dataset))
         print(train_metrics)
     else:
         print(f"epoch time: {time.perf_counter() - epoch_start}")
@@ -209,11 +209,11 @@ for epoch in range(1, epochs+1):
             
 
             probs = F.softmax(logits, dim=1).argmax(1)
-            update_metrics(probs, target, running=val_metrics)
+            val_metrics = update_metrics(val_metrics, probs, target)
         
         print(val_metrics)
         print('########### Validation Set Evaluation : #############')
-        norm_metrics(val_metrics, len(val_loader))
+        val_metrics = norm_metrics(val_metrics, len(val_loader))
         print(val_metrics)
         metrics_history.append(val_metrics)
         if val_metrics["plastic_debris"]['iou'] > best_metric:
