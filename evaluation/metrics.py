@@ -51,7 +51,7 @@ def update_metrics(y_pred, y_true, running=None):
     confusion_matrix = torch.tensor([[tn, fp], [fn, tp]])
 
     if not running:
-        return {
+        running = {
             'accuracy': acc,
             'confusion_matrix': confusion_matrix,
             'plastic_debris': {
