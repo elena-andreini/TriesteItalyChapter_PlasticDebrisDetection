@@ -222,6 +222,6 @@ for epoch in range(1, epochs+1):
                 print("#"*40)
 
     total_val_time += time.perf_counter() - val_time
-    scheduler.val_metrics["plastic_debris"]['iou']
+    scheduler.step(val_metrics["plastic_debris"]['iou'])
 
 end_time = time.perf_counter()
