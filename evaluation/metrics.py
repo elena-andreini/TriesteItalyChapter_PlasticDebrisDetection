@@ -1,10 +1,10 @@
 import torch
-
+import seaborn as sns
 
 def norm_metrics(running, norm):
     try:
         running["accuracy"] /= norm
-        running["confusion_matrix"] = running["confusion_matrix"].float() / running["confusion_matrix"].sum()
+        # running["confusion_matrix"] = running["confusion_matrix"].float() / running["confusion_matrix"].sum()
         running["plastic_debris"]["precision"] /= norm
         running["plastic_debris"]["recall"] /= norm
         running["plastic_debris"]["f1"] /= norm
@@ -19,6 +19,22 @@ def norm_metrics(running, norm):
         raise KeyError(f"invalid key in running metrics dict {e}")
 
 
+
+def plot_metrics(running):
+    print(running["accuracy"])
+    sns.heatmap(running["confusion_matrix"].cpu(), annot=True, cmap="coolwarm")
+    print()
+    print("plastic debris metrics")
+    print("\t", running["plastic_debris"]["precision"])
+    print("\t", running["plastic_debris"]["recall"])
+    print("\t", running["plastic_debris"]["f1"])
+    print("\t", running["plastic_debris"]["iou"])
+    print()
+    print("background metrics")
+    print("\t", running["background"]["precision"])
+    print("\t", running["background"]["recall"])
+    print("\t", running["background"]["f1"])
+    print("\t", running["background"]["iou"])
 
 
 def update_metrics(running, y_pred, y_true):

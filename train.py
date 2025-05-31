@@ -180,7 +180,7 @@ for epoch in range(1, epochs+1):
     if epoch % 10 == 0:
         print('########### training Set Evaluation : #############')
         train_metrics = norm_metrics(train_metrics, len(train_dataset))
-        print(train_metrics)
+        plot_metrics(train_metrics)
     else:
         print(f"epoch time: {time.perf_counter() - epoch_start}")
 
@@ -211,7 +211,7 @@ for epoch in range(1, epochs+1):
         
         print('########### Validation Set Evaluation : #############')
         val_metrics = norm_metrics(val_metrics, len(val_loader))
-        print(val_metrics)
+        plot_metrics(val_metrics)
         metrics_history.append(val_metrics)
         if val_metrics["plastic_debris"]['iou'] > best_metric:
             best_metric = val_metrics["plastic_debris"]['iou']
