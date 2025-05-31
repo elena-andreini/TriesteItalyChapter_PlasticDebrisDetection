@@ -187,39 +187,39 @@ for epoch in range(1, epochs+1):
 
 
 
-    if epoch % 10 == 0:
-        model.eval()
-        val_metrics = {}
-        testLossF = []
-        valPrecHistory = []
-        iters = len(val_loader)
-        with torch.no_grad():
-            for i, (image, target) in enumerate(val_loader):
-                logits = model(image)
-                loss = criterion(logits, target)
 
-                logits = torch.movedim(logits, (0,1,2,3), (0,3,1,2))
-                logits = logits.reshape((-1,output_classes))
-                target = target.reshape(-1)
-                mask = target != -1
-                
-                logits = logits[mask]
-                target = target[mask]
-                
+    model.eval()
+    val_metrics = {}
+    testLossF = []
+    valPrecHistory = []
+    iters = len(val_loader)
+    with torch.no_grad():
+        for i, (image, target) in enumerate(val_loader):
+            logits = model(image)
+            loss = criterion(logits, target)
 
-                probs = F.softmax(logits, dim=1).argmax(1)
-                update_metrics(val_metrics)
+            logits = torch.movedim(logits, (0,1,2,3), (0,3,1,2))
+            logits = logits.reshape((-1,output_classes))
+            target = target.reshape(-1)
+            mask = target != -1
             
-            print('########### Validation Set Evaluation : #############')
-            norm_metrics(val_metrics, len(val_loader))
-            print(val_metrics)
-            metrics_history.append(val_metrics)
-            if val_metrics["plastic_debris"]['iou'] > best_metric:
-                best_metric = val_metrics["plastic_debris"]['iou']
-                torch.save(model.state_dict(), best_model_path)
-                print("#"*40)
-                print(f"Saved best model with validation metric: {best_metric}")
-                print("#"*40)
+            logits = logits[mask]
+            target = target[mask]
+            
+
+            probs = F.softmax(logits, dim=1).argmax(1)
+            update_metrics(val_metrics)
+        
+        print('########### Validation Set Evaluation : #############')
+        norm_metrics(val_metrics, len(val_loader))
+        print(val_metrics)
+        metrics_history.append(val_metrics)
+        if val_metrics["plastic_debris"]['iou'] > best_metric:
+            best_metric = val_metrics["plastic_debris"]['iou']
+            torch.save(model.state_dict(), best_model_path)
+            print("#"*40)
+            print(f"Saved best model with validation metric: {best_metric}")
+            print("#"*40)
 
     total_val_time += time.perf_counter() - val_time
     scheduler.step(val_metrics["plastic_debris"]['iou'])
