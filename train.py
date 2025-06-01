@@ -118,7 +118,6 @@ writer = SummaryWriter(log_dir=logs_dir)
 best_metric = -float('inf')
 os.makedirs(os.path.join("models", "checkpoints"), exist_ok=True)
 best_model_path = os.path.join("models", "checkpoints", 'best_model.pth')
-print(best_model_path, os.listdir(os.path.join("models")))
 output_classes = 2
 metrics_history = []
 
