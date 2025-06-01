@@ -218,7 +218,7 @@ for epoch in range(1, epochs+1):
             best_metric = val_metrics["plastic_debris"]['iou']
             torch.save(model.state_dict(), best_model_path)
             print("#"*40)
-            print(f"Saved best model with validation metric: {best_metric}")
+            print(f"Saved best model with validation metric: {best_metric} at {best_model_path}")
             print("#"*40)
 
     total_val_time += time.perf_counter() - val_time
