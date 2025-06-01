@@ -7,7 +7,6 @@ import os
 import pandas as pd
 import numpy as np
 
-from torch.utils.tensorboard import SummaryWriter
 from torch.utils.data import DataLoader
 from torch.utils.benchmark import Timer
 from tqdm import tqdm
@@ -105,19 +104,10 @@ scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(
 )
 
 
-
-def save_logs(writer, ..., mode="train")
-    writer.add_scalar(f"{mode}/Loss", loss.item(), total_steps)
-
-
-logs_dir = os.path.join(basepath, "runs")
-os.makedirs(logs_dir, exist_ok=True)
-writer = SummaryWriter(log_dir=logs_dir)
-
-
 best_metric = -float('inf')
 os.makedirs(os.path.join("models", "checkpoints"), exist_ok=True)
 best_model_path = os.path.join("models", "checkpoints", 'best_model.pth')
+print(best_model_path, os.listdir(os.path.join("models")))
 output_classes = 2
 metrics_history = []
 
@@ -131,6 +121,8 @@ total_val_time = 0
 total_val = 0
 
 
+
+# not used yet
 def train_step(model, optimizer, criterion):
     optimizer.zero_grad()
     logits = model(image)
@@ -140,6 +132,7 @@ def train_step(model, optimizer, criterion):
     return loss
         
 
+# not used yet
 @torch.no_grad()
 def eval_step(model):
     logits = logits.detach()
@@ -164,7 +157,12 @@ for epoch in range(1, epochs+1):
     epoch_start = time.perf_counter()
     for image, target in pb:
         batch_comp_start = time.perf_counter()
-        loss = train_step(model, optimizer, criterion)
+        optimizer.zero_grad()
+        logits = model(image)
+        loss = criterion(logits, target)
+        loss.backward()
+        optimizer.step()
+
         batch_time = time.perf_counter()-batch_comp_start
 
         pb.set_postfix(loss=loss.item(), batch_time=batch_time, lr=scheduler.get_last_lr())
@@ -187,16 +185,17 @@ for epoch in range(1, epochs+1):
                 target = target[mask]
 
                 probs = F.softmax(logits, dim=1).argmax(1)
-                save_logs(writer, total_steps, probs, target, loss.item(), mode="train")
-                writer.add_scalar("lr", scheduler.get_last_lr(), total_steps)
-                # train_metrics = update_metrics(writer, train_metrics, probs, target)
+                train_metrics = update_metrics(train_metrics, probs, target)
 
-    # if epoch % 10 == 0:
-    #     print('########### training Set Evaluation : #############')
-    #     # train_metrics = norm_metrics(train_metrics, len(train_dataset))
-    #     # plot_metrics(train_metrics)
-    # else:
-    pb.set_postfix(epoch_time=time.perf_counter() - epoch_start)
+    if epoch % 10 == 0:
+        print('########### training Set Evaluation : #############')
+        train_metrics = norm_metrics(train_metrics, len(train_dataset))
+        plot_metrics(train_metrics)
+    else:
+        print(f"epoch time: {time.perf_counter() - epoch_start}")
+
+
+
 
     model.eval()
     val_metrics = {}
@@ -219,8 +218,6 @@ for epoch in range(1, epochs+1):
 
             probs = F.softmax(logits, dim=1).argmax(1)
             val_metrics = update_metrics(val_metrics, probs, target)
-            # save_logs(writer, total_steps, probs, target, loss.item(), mode="val")
-
         
         print('########### Validation Set Evaluation : #############')
         val_metrics = norm_metrics(val_metrics, len(val_loader))
@@ -237,5 +234,3 @@ for epoch in range(1, epochs+1):
     scheduler.step(val_metrics["plastic_debris"]['iou'])
 
 end_time = time.perf_counter()
-
-print("total training time: ", end_time - start_time - total_val_time)
