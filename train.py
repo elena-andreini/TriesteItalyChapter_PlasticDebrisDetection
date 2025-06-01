@@ -121,6 +121,8 @@ total_val_time = 0
 total_val = 0
 
 
+
+# not used yet
 def train_step(model, optimizer, criterion):
     optimizer.zero_grad()
     logits = model(image)
@@ -130,6 +132,7 @@ def train_step(model, optimizer, criterion):
     return loss
         
 
+# not used yet
 @torch.no_grad()
 def eval_step(model):
     logits = logits.detach()
@@ -154,7 +157,12 @@ for epoch in range(1, epochs+1):
     epoch_start = time.perf_counter()
     for image, target in pb:
         batch_comp_start = time.perf_counter()
-        loss = train_step(model, optimizer, criterion)
+        optimizer.zero_grad()
+        logits = model(image)
+        loss = criterion(logits, target)
+        loss.backward()
+        optimizer.step()
+
         batch_time = time.perf_counter()-batch_comp_start
 
         pb.set_postfix(loss=loss.item(), batch_time=batch_time, lr=scheduler.get_last_lr())
